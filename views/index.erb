@@ -1,1 +1,37 @@
-<p>Welcome to Sinatra Kickstart.</p>
+<p>Here you can learn many languages.</p>
+
+<ul>
+  <% LANGUAGES.each do |lang| %>
+    <li>
+      <a href="/learn/<%= lang.code %>" data-vc-push="#title, #lessons, #sponsor">
+        <%= lang.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<div id="lessons">
+  <% if @lang %>
+    <div<%= ' class="highlight"' if request.xhr? %>>
+      <p>In <b><%= @lang.name %></b>…</p>
+      <ul>
+        <% @lang.words.each do |word, translated| %>
+          <li><b><%= word %></b> is <b><%= translated %></b></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<p>Here you can… aww fuck it, this is just some random content that stays the same from page to page.</p>
+
+<div id="sponsor">
+  <% if @lang %>
+    <div<%= ' class="highlight"' if request.xhr? %>>
+      <p>
+        Want to learn more <b><%= @lang.name %></b>?
+        <a href="http://www.google.<%= @lang.code %>">Click here!</a>
+      </p>
+    </div>
+  <% end %>
+</div>

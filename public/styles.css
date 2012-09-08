@@ -1,4 +1,20 @@
 body {
   font: 16px 'Helvetica Neue';
   padding: 2em;
+  margin: auto;
+  max-width: 600px
 }
+
+@-webkit-keyframes highlight {
+  from { background: rgba(180, 250, 180, 1) }
+    to { background: rgba(180, 250, 180, .2) }
+}
+
+#lessons > div,
+#sponsor > div {
+  margin: 1.5em 0;
+  padding: .8em 2em;
+  background: rgba(180, 250, 180, .2);
+  border: 3px double rgb(150, 220, 150);
+}
+.highlight { -webkit-animation: highlight 2s }
