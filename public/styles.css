@@ -5,6 +5,19 @@ body {
   max-width: 600px
 }
 
+.velcro-loading body:before {
+  content: 'Loading…';
+  position: fixed;
+  top: 0; right: 0; left: 0;
+  padding: .8em;
+  text-align: center;
+  color: rgb(50,150,50);
+  background: rgb(150,250,200);
+}
+.velcro-loading * {
+  cursor: wait;
+}
+
 @-webkit-keyframes highlight {
   from { background: rgba(180, 250, 180, 1) }
     to { background: rgba(180, 250, 180, .2) }
@@ -18,3 +31,17 @@ body {
   border: 3px double rgb(150, 220, 150);
 }
 .highlight { -webkit-animation: highlight 2s }
+
+#ad { text-align: center }
+#ad img { border: 3px double rgb(150, 220, 150) }
+
+@media (min-width: 1300px) {
+  #ad {
+    position: fixed;
+    top: 4em; right: 2em;
+  }
+}
+
+#copyright {
+  text-align: center;
+}

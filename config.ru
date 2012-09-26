@@ -1,3 +1,4 @@
+require 'erubis'
 require 'sinatra'
 require 'sprockets'
 require 'coffee-script'

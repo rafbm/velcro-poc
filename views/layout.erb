@@ -1,7 +1,11 @@
 <!DOCTYPE html>
+<html data-velcro-all="#ad, #copyright" data-velcro-all-push="#title">
 <head>
   <meta charset="utf-8">
-  <title>Velcro.js Proof of Concept</title>
+  <title><%= @title %> | Velcro.js Proof of Concept</title>
+  <% if @meta_description %>
+    <meta name="description" content="<%= @meta_description %>">
+  <% end %>
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
@@ -9,11 +13,38 @@
     <% if request.path == '/' %>
       Velcro.js Proof of Concept
     <% else %>
-      <a href="/" data-vc-push="#title, #lessons, #sponsor">Velcro.js Proof of Concept</a>
+      <a href="/" data-velcro-push="#main">Velcro.js Proof of Concept</a>
     <% end %>
   </h1>
-  <%= yield %>
-  <script src="/assets/zepto-1.0rc1.min.js"></script>
-  <script src="/assets/scripts.js"></script>
+
+  <form action="/search" data-velcro-push="#main">
+    <input name="q" type="search" placeholder="Search">
+    <button>GET</button>
+  </form>
+
+  <form action="/search" data-velcro-update="#main" method="post">
+    <input name="q" type="search" placeholder="Search">
+    <button>POST</button>
+  </form>
+
+  <div id="main">
+    <%= yield %>
+  </div>
+
+  <div id="ad">
+    <img src="http://cageme.herokuapp.com/300/250?foo<%= Time.now %>" alt="Cage">
+  </div>
+
+  <div id="copyright">
+    <p>© <%= Time.now.strftime('%Y-%m-%d %H:%M:%S') %> Foozle Barzle Bee</p>
+  </div>
+
+  <!--[if IE]>
+    <script src="http://code.jquery.com/jquery.js"></script>
+  <![endif]-->
+  <!--[if !IE]><!-->
+    <script src="/assets/zepto-1.0rc1.min.js"></script>
+  <!-- <![endif]-->
+  <script src="/assets/velcro.js"></script>
 </body>
 </html>

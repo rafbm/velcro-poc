@@ -3,7 +3,7 @@
 <ul>
   <% LANGUAGES.each do |lang| %>
     <li>
-      <a href="/learn/<%= lang.code %>" data-vc-push="#title, #lessons, #sponsor">
+      <a href="/learn/<%= lang.code %>" data-velcro-update="#lessons, #sponsor">
         <%= lang.name %>
       </a>
     </li>
@@ -23,7 +23,7 @@
   <% end %>
 </div>
 
-<p>Here you can… aww fuck it, this is just some random content that stays the same from page to page.</p>
+<p>This is just some random content that stays the same from page to page.</p>
 
 <div id="sponsor">
   <% if @lang %>
